@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebQuest · Proyecto Aire Limpio</title>
+  <meta name="description" content="WebQuest del proyecto Aire Limpio: diseño del sistema eléctrico de ventilación en una mina." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">WQ</div>
+        <div>
+          <div>Proyecto Aire Limpio</div>
+          <small class="brand-subtitle">WebQuest · Automatismos Industriales</small>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="active">Inicio</a>
+        <a href="#introduccion">Introducción</a>
+        <a href="#tarea">Tarea</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#evaluacion">Evaluación</a>
+        <a href="#conclusion">Conclusión</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <article class="hero-card">
+          <div>
+            <div class="eyebrow">Proyecto de misión técnica</div>
+            <h1>¿Puedes diseñar un sistema seguro para una mina?</h1>
+            <p class="lead">
+              Diseña el sistema eléctrico de ventilación para un ventilador industrial de 15 kW en una mina subterránea. Tendrás que combinar arranque estrella-triángulo, inversión de giro, seguridad eléctrica y simulación técnica.
+            </p>
+            <div class="cta-row">
+              <button class="btn btn-primary" id="startMission">Comenzar / Continuar la misión</button>
+              <a class="btn btn-secondary" href="#evaluacion">Ver evaluación</a>
+            </div>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>3</strong>
+              <span>Resultados de aprendizaje implicados</span>
+            </div>
+            <div class="metric">
+              <strong>5</strong>
+              <span>Fases guiadas del proceso</span>
+            </div>
+            <div class="metric">
+              <strong>15 kW</strong>
+              <span>Potencia del ventilador industrial</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="visual-card" aria-label="Ilustración conceptual de mina con ventilador">
+          <div>
+            <div class="eyebrow">Escenario del reto</div>
+            <h2 class="visual-title">Ventilación segura en túnel subterráneo</h2>
+            <p class="section-text visual-text">
+              El sistema debe evitar caídas de tensión en el arranque y permitir el cambio de sentido de giro para extraer aire contaminado o inyectar aire limpio según el sensor.
+            </p>
+          </div>
+
+          <div class="mine-scene">
+            <div class="tunnel"></div>
+            <div class="fan">
+              <div class="fan-blades">
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mission-bar">
+            <div class="mission-chip"><span>1</span>Analiza el problema</div>
+            <div class="mission-chip"><span>2</span>Define la solución</div>
+            <div class="mission-chip"><span>3</span>Diseña circuitos</div>
+            <div class="mission-chip"><span>4</span>Justifica y valida</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="introduccion">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Introducción</div>
+          <h2 class="section-title">El problema de la calidad del aire en la mina</h2>
+          <p class="section-text">
+            Una empresa minera necesita un ventilador industrial de 15 kW para garantizar la ventilación de un túnel subterráneo. El arranque directo del motor puede provocar una caída de tensión en la instalación, con riesgos técnicos y de seguridad. Además, el ventilador debe cambiar el sentido de giro para extraer aire contaminado o inyectar aire limpio en función de la información recibida por un sensor.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Problema eléctrico</h3>
+            <p>El arranque directo de un motor trifásico de alta potencia produce picos de corriente elevados. Esto puede afectar a otros equipos y comprometer la estabilidad de la instalación.</p>
+          </article>
+          <article class="card">
+            <h3>Problema funcional</h3>
+            <p>El sistema debe invertir el sentido de giro del ventilador según la calidad del aire detectada, alternando entre extracción e inyección.</p>
+          </article>
+          <article class="card">
+            <h3>Problema de seguridad</h3>
+            <p>La solución debe integrar enclavamientos eléctricos y mecánicos, temporización y criterios de seguridad industrial para evitar maniobras incompatibles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarea">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Tarea</div>
+          <h2 class="section-title">Tu reto como técnico en automatismos</h2>
+          <p class="section-text">
+            Debes diseñar una solución completa, segura y técnicamente justificada para el control del motor del ventilador industrial. El proyecto combina diseño de potencia, mando, criterios de seguridad y validación por simulación.
+          </p>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverable-box">
+            <h3>Entregable 1 · Circuito de potencia</h3>
+            <ul>
+              <li>Diseño del esquema de fuerza del motor trifásico.</li>
+              <li>Arranque estrella-triángulo.</li>
+              <li>Inversión de giro mediante contactores.</li>
+            </ul>
+          </div>
+          <div class="deliverable-box">
+            <h3>Entregable 2 · Circuito de mando</h3>
+            <ul>
+              <li>Pulsadores de marcha y paro.</li>
+              <li>Temporización de la conmutación.</li>
+              <li>Enclavamientos eléctricos y mecánicos.</li>
+            </ul>
+          </div>
+          <div class="deliverable-box">
+            <h3>Entregable 3 · Justificación técnica</h3>
+            <ul>
+              <li>Explicación del arranque estrella-triángulo.</li>
+              <li>Comparación de corrientes de arranque.</li>
+              <li>Justificación de las decisiones de seguridad.</li>
+            </ul>
+          </div>
+          <div class="deliverable-box">
+            <h3>Entregable 4 · Validación</h3>
+            <ul>
+              <li>Simulación del circuito.</li>
+              <li>Comprobación del funcionamiento global.</li>
+              <li>Uso de herramientas como CADeSIMU o QElectroTech.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Proceso guiado</div>
+          <h2 class="section-title">Aprende por fases y avanza como en una misión</h2>
+          <p class="section-text">
+            El proceso está organizado en cinco fases. En cada una encontrarás una explicación clara, preguntas guía, recursos, consejos, errores comunes y un mini quiz para comprobar la comprensión.
+          </p>
+        </div>
+
+        <div class="phase-shell">
+          <aside class="phase-nav" id="phaseNav">
+            <div class="phase-step active" data-phase="0">
+              <div class="phase-index">1</div>
+              <div>
+                <strong>Comprende el problema</strong>
+                <div class="phase-step-subtitle">Necesidad técnica y contexto</div>
+              </div>
+            </div>
+            <div class="phase-step" data-phase="1">
+              <div class="phase-index">2</div>
+              <div>
+                <strong>Configura la solución</strong>
+                <div class="phase-step-subtitle">Inversión y estrella-triángulo</div>
+              </div>
+            </div>
+            <div class="phase-step" data-phase="2">
+              <div class="phase-index">3</div>
+              <div>
+                <strong>Diseña circuitos</strong>
+                <div class="phase-step-subtitle">Potencia y mando</div>
+              </div>
+            </div>
+            <div class="phase-step" data-phase="3">
+              <div class="phase-index">4</div>
+              <div>
+                <strong>Asegura el circuito</strong>
+                <div class="phase-step-subtitle">Seguridad y maniobras</div>
+              </div>
+            </div>
+            <div class="phase-step" data-phase="4">
+              <div class="phase-index">5</div>
+              <div>
+                <strong>Justifica la solución</strong>
+                <div class="phase-step-subtitle">Defensa técnica</div>
+              </div>
+            </div>
+
+            <div class="progress-wrap">
+              <strong>Progreso de la misión</strong>
+              <div id="progressText" class="progress-text">Fase 1 de 5</div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="phase-main">
+            <article class="phase-pane active" data-phase-pane="0">
+              <div class="phase-banner">
+                <div class="section-kicker banner-kicker">Fase 1</div>
+                <h3>Comprende a fondo el problema</h3>
+                <p class="section-text">Analiza qué ocurre cuando se arranca un motor directamente, qué riesgos aparecen en una mina y por qué el sistema debe cambiar de sentido de giro según el sensor.</p>
+              </div>
+
+              <div class="info-grid">
+                <div class="mini-card">
+                  <h4>Qué debes entender</h4>
+                  <ul>
+                    <li>Corriente de arranque en motores trifásicos.</li>
+                    <li>Impacto de la caída de tensión en la instalación.</li>
+                    <li>Necesidad de extracción e inyección de aire.</li>
+                  </ul>
+                </div>
+                <div class="mini-card">
+                  <h4>Preguntas guía</h4>
+                  <ul>
+                    <li>¿Qué ocurre cuando se arranca el motor directamente?</li>
+                    <li>¿Qué es la corriente de arranque?</li>
+                    <li>¿Cómo podría intervenir un sensor en la maniobra?</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="quiz" data-quiz="0">
+                <h4>Mini quiz de fase 1</h4>
+                <div class="quiz-question">
+                  <strong>1. ¿Qué problema puede causar el arranque directo de un motor potente?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option" data-correct="true">Una corriente de arranque elevada que provoque caída de tensión.</button>
+                    <button class="quiz-option">Ningún efecto en la instalación.</button>
+                    <button class="quiz-option">Solo una mejora de la eficiencia energética.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question">
+                  <strong>2. ¿Por qué el ventilador debe cambiar de sentido de giro?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Para gastar más energía en la mina.</button>
+                    <button class="quiz-option" data-correct="true">Para alternar entre extracción de aire contaminado e inyección de aire limpio.</button>
+                    <button class="quiz-option">Para sustituir al relé térmico.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phase-pane" data-phase-pane="1">
+              <div class="phase-banner">
+                <div class="section-kicker banner-kicker">Fase 2</div>
+                <h3>Configura la solución a alto nivel</h3>
+                <p class="section-text">Define cómo se invertirá el giro del motor y por qué el arranque estrella-triángulo es adecuado para reducir la corriente inicial.</p>
+              </div>
+
+              <div class="info-grid">
+                <div class="mini-card">
+                  <h4>Bloque 1 · Inversión de giro</h4>
+                  <ul>
+                    <li>Intercambio de dos fases.</li>
+                    <li>Uso de contactores para cada sentido.</li>
+                    <li>Evitar activación simultánea.</li>
+                  </ul>
+                </div>
+                <div class="mini-card">
+                  <h4>Bloque 2 · Estrella-triángulo</h4>
+                  <ul>
+                    <li>Arranque inicial en estrella.</li>
+                    <li>Conmutación posterior a triángulo.</li>
+                    <li>Reducción de la corriente de arranque.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mini-card top-gap">
+                <h4>Relación clave</h4>
+                <p>En el arranque estrella, la corriente es menor que en triángulo. De forma simplificada: I<sub>estrella</sub> = I<sub>triángulo</sub> / √3.</p>
+              </div>
+
+              <div class="quiz" data-quiz="1">
+                <h4>Mini quiz de fase 2</h4>
+                <div class="quiz-question">
+                  <strong>1. ¿Cómo cambia el sentido de giro de un motor trifásico?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Aumentando la tensión de mando.</button>
+                    <button class="quiz-option" data-correct="true">Intercambiando dos fases de alimentación.</button>
+                    <button class="quiz-option">Añadiendo un fusible más grande.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question">
+                  <strong>2. ¿Para qué se usa el arranque estrella-triángulo?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Para eliminar el circuito de mando.</button>
+                    <button class="quiz-option" data-correct="true">Para reducir la corriente de arranque y luego pasar al régimen normal.</button>
+                    <button class="quiz-option">Para evitar el uso de contactores.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phase-pane" data-phase-pane="2">
+              <div class="phase-banner">
+                <div class="section-kicker banner-kicker">Fase 3</div>
+                <h3>Diseña los circuitos según funciones básicas</h3>
+                <p class="section-text">Es el momento de dibujar el esquema de fuerza y el esquema de mando. Debes representar los contactores, protecciones, pulsadores, temporizador y lógica de funcionamiento.</p>
+              </div>
+
+              <div class="cards two-cols">
+                <div class="card">
+                  <h4>Esquema de fuerza</h4>
+                  <ul>
+                    <li>Alimentación trifásica.</li>
+                    <li>Protecciones.</li>
+                    <li>Contactores de línea, estrella, triángulo y giro.</li>
+                    <li>Motor de 15 kW.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h4>Esquema de mando</h4>
+                  <ul>
+                    <li>Pulsador de marcha y paro.</li>
+                    <li>Temporizador de conmutación.</li>
+                    <li>Bobinas de contactores.</li>
+                    <li>Enclavamientos de seguridad.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="quiz" data-quiz="2">
+                <h4>Mini quiz de fase 3</h4>
+                <div class="quiz-question">
+                  <strong>1. ¿Qué dos esquemas principales debes diseñar?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Solo el de señalización y el neumático.</button>
+                    <button class="quiz-option" data-correct="true">El esquema de fuerza y el esquema de mando.</button>
+                    <button class="quiz-option">Solo el de potencia.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question">
+                  <strong>2. ¿Qué elemento permite cambiar de estrella a triángulo tras un tiempo?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Un piloto luminoso.</button>
+                    <button class="quiz-option">Un diferencial.</button>
+                    <button class="quiz-option" data-correct="true">Un temporizador.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phase-pane" data-phase-pane="3">
+              <div class="phase-banner">
+                <div class="section-kicker banner-kicker">Fase 4</div>
+                <h3>Asegura el circuito</h3>
+                <p class="section-text">Comprueba que el sistema no permita maniobras incompatibles. La seguridad no es un añadido: forma parte del diseño.</p>
+              </div>
+
+              <div class="info-grid">
+                <div class="mini-card">
+                  <h4>Debes comprobar</h4>
+                  <ul>
+                    <li>Que estrella y triángulo no se activen a la vez.</li>
+                    <li>Que dos sentidos de giro no se activen simultáneamente.</li>
+                    <li>Que las protecciones respondan correctamente.</li>
+                  </ul>
+                </div>
+                <div class="mini-card">
+                  <h4>Riesgos si falla el diseño</h4>
+                  <ul>
+                    <li>Cortocircuitos y maniobras erróneas.</li>
+                    <li>Daño en contactores o motor.</li>
+                    <li>Riesgo para la instalación y para el personal.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="quiz" data-quiz="3">
+                <h4>Mini quiz de fase 4</h4>
+                <div class="quiz-question">
+                  <strong>1. ¿Qué es un enclavamiento eléctrico?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Una lámpara que indica avería.</button>
+                    <button class="quiz-option" data-correct="true">Un mecanismo del circuito que impide activar maniobras incompatibles.</button>
+                    <button class="quiz-option">Un tipo especial de fusible.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question">
+                  <strong>2. ¿Por qué no pueden activarse estrella y triángulo a la vez?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Porque el motor giraría más lento.</button>
+                    <button class="quiz-option" data-correct="true">Porque se produciría una maniobra incorrecta y potencialmente peligrosa.</button>
+                    <button class="quiz-option">Porque el sensor dejaría de funcionar.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="phase-pane" data-phase-pane="4">
+              <div class="phase-banner">
+                <div class="section-kicker banner-kicker">Fase 5</div>
+                <h3>Justifica la solución y prepara la presentación</h3>
+                <p class="section-text">Explica por qué has elegido esa arquitectura, cómo protege la instalación y qué valor aporta la simulación. Aquí pasas de ejecutar a argumentar como un profesional.</p>
+              </div>
+
+              <div class="cards two-cols">
+                <div class="card">
+                  <h4>Qué debes justificar</h4>
+                  <ul>
+                    <li>Beneficios del arranque estrella-triángulo.</li>
+                    <li>Razón de los enclavamientos.</li>
+                    <li>Relación entre seguridad y funcionamiento.</li>
+                    <li>Posibles mejoras, como variador de frecuencia.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h4>Consejos de defensa</h4>
+                  <ul>
+                    <li>Usa un lenguaje técnico claro.</li>
+                    <li>Apóyate en esquemas y simulaciones.</li>
+                    <li>Conecta cada decisión con una necesidad real de la mina.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="quiz" data-quiz="4">
+                <h4>Mini quiz de fase 5</h4>
+                <div class="quiz-question">
+                  <strong>1. ¿Qué debe incluir una buena justificación técnica?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Solo una descripción estética del esquema.</button>
+                    <button class="quiz-option" data-correct="true">Razones técnicas, criterios de seguridad y explicación del funcionamiento.</button>
+                    <button class="quiz-option">Únicamente el nombre de los componentes.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question">
+                  <strong>2. ¿Qué mejora opcional aparece como propuesta en el proyecto?</strong>
+                  <div class="quiz-options">
+                    <button class="quiz-option">Instalar una batería adicional.</button>
+                    <button class="quiz-option" data-correct="true">Valorar el uso de un variador de frecuencia.</button>
+                    <button class="quiz-option">Sustituir todos los contactores por fusibles.</button>
+                  </div>
+                  <div class="quiz-feedback"></div>
+                </div>
+              </div>
+            </article>
+
+            <div class="phase-controls">
+              <button class="btn btn-secondary" id="prevPhase">Fase anterior</button>
+              <button class="btn btn-primary" id="nextPhase">Siguiente fase</button>
+            </div>
+          </div>
+
+          <aside class="phase-side">
+            <div class="callout tip">
+              <h4>Consejo</h4>
+              <p>Relaciona siempre el diseño con la necesidad real de ventilación y con la reducción del riesgo en la mina.</p>
+            </div>
+            <div class="callout warn">
+              <h4>Cuidado con esto</h4>
+              <p>No confundas el esquema de fuerza con el esquema de mando. Ambos se complementan, pero no representan lo mismo.</p>
+            </div>
+            <div class="callout error">
+              <h4>Error común</h4>
+              <p>Olvidar enclavamientos entre contactores o no justificar técnicamente por qué se ha elegido una solución concreta.</p>
+            </div>
+            <div class="mini-card side-gap">
+              <h4>Checklist rápido</h4>
+              <ul>
+                <li>¿Has definido el problema?</li>
+                <li>¿Has elegido la maniobra correcta?</li>
+                <li>¿El circuito es seguro?</li>
+                <li>¿La solución está justificada?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Recursos</div>
+          <h2 class="section-title">Material técnico para aprender y diseñar</h2>
+          <p class="section-text">Aquí tienes una estructura de recursos alineada con el proyecto: fundamentos, automatismos, seguridad y simulación.</p>
+        </div>
+
+        <div class="resource-grid">
+          <div class="resource-category">
+            <h3>1. Fundamentos de motores trifásicos</h3>
+            <ul>
+              <li>Motores eléctricos trifásicos: arranque e inversión del giro.</li>
+              <li>Motor asincrónico trifásico.</li>
+              <li>Prácticas de electrotecnia con motores trifásicos.</li>
+            </ul>
+          </div>
+          <div class="resource-category">
+            <h3>2. Arranque estrella-triángulo</h3>
+            <ul>
+              <li>Conexión estrella-triángulo: explicación completa.</li>
+              <li>Laboratorio de arranque estrella-triángulo con inversión.</li>
+              <li>Proyectos de maniobra con inversión de giro.</li>
+            </ul>
+          </div>
+          <div class="resource-category">
+            <h3>3. Inversión de giro</h3>
+            <ul>
+              <li>Fundamentos de inversión de giro en motores trifásicos.</li>
+              <li>Maniobras con contactores para cambio de sentido.</li>
+            </ul>
+          </div>
+          <div class="resource-category">
+            <h3>4. Automatismos y protecciones</h3>
+            <ul>
+              <li>Contactores, relé térmico y protecciones.</li>
+              <li>Esquemas eléctricos de fuerza y mando.</li>
+              <li>Automatismo eléctrico y electrónica industrial.</li>
+            </ul>
+          </div>
+          <div class="resource-category">
+            <h3>5. Seguridad eléctrica</h3>
+            <ul>
+              <li>Normativa básica de seguridad en automatismos industriales.</li>
+              <li>Criterios para enclavamientos y maniobras seguras.</li>
+            </ul>
+          </div>
+          <div class="resource-category">
+            <h3>6. Simulación y audiovisuales</h3>
+            <ul>
+              <li>CADeSIMU para validación de maniobras.</li>
+              <li>QElectroTech para diseño de esquemas.</li>
+              <li>Vídeos explicativos sobre estrella-triángulo, inversión de giro y esquemas de mando.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Evaluación</div>
+          <h2 class="section-title">Cómo se calificará el proyecto</h2>
+          <p class="section-text">La evaluación combina corrección técnica, seguridad, argumentación y calidad de presentación.</p>
+        </div>
+
+        <div class="evaluation-shell">
+          <div class="card">
+            <h3>Pesos de evaluación</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Criterio</th>
+                  <th>Peso</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Esquema de fuerza correcto</td><td>25%</td></tr>
+                <tr><td>Esquema de mando completo</td><td>25%</td></tr>
+                <tr><td>Seguridad y enclavamientos</td><td>20%</td></tr>
+                <tr><td>Justificación técnica</td><td>20%</td></tr>
+                <tr><td>Claridad y presentación</td><td>10%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <h3>Niveles de logro</h3>
+            <div class="levels">
+              <div class="level">
+                <strong>Insuficiente</strong>
+                <p>Esquema incorrecto o incompleto, sin comprensión global del sistema.</p>
+              </div>
+              <div class="level">
+                <strong>Básico</strong>
+                <p>La solución funciona parcialmente, pero presenta carencias técnicas o de seguridad.</p>
+              </div>
+              <div class="level">
+                <strong>Avanzado</strong>
+                <p>Sistema completo y correcto, con una justificación adecuada y coherente.</p>
+              </div>
+              <div class="level">
+                <strong>Excelente</strong>
+                <p>Diseño profesional, seguridad impecable, justificación rigurosa y propuesta de mejora.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Conclusión</div>
+          <h2 class="section-title">Has pasado de ejecutar a diseñar soluciones</h2>
+          <p class="section-text">
+            En esta WebQuest no solo conectas cables: analizas necesidades reales, diseñas maniobras industriales, proteges la instalación y justificas técnicamente cada decisión. Ese es el salto hacia un desempeño profesional más completo en automatismos industriales.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Has aprendido</h3>
+            <p>Que el funcionamiento técnico y la seguridad deben pensarse conjuntamente desde el diseño inicial.</p>
+          </div>
+          <div class="card">
+            <h3>Has demostrado</h3>
+            <p>Capacidad para interpretar un problema real y traducirlo a esquemas de potencia, mando y validación.</p>
+          </div>
+          <div class="card">
+            <h3>Próximo paso</h3>
+            <p>Simular, depurar y presentar tu solución con criterio técnico claro y profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        WebQuest desarrollada para el proyecto <strong>“Aire limpio”</strong>. Diseño web en HTML, CSS y JavaScript con navegación por secciones, proceso interactivo por fases y mini quizzes integrados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
