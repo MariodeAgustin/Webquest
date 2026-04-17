@@ -42,3 +42,7 @@ La web quedará publicada en una URL similar a:
 ## Nota
 
 La versión actual usa ilustración generada con CSS para que el proyecto funcione sin depender de imágenes externas.
+
+
+## Cambio aplicado
+Se han activado los recursos de la sección "Recursos" convirtiendo los textos en enlaces clicables.

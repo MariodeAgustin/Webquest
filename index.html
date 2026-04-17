@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -19,8 +19,8 @@
       </div>
       <nav class="nav" id="nav">
         <a href="#inicio" class="active">Inicio</a>
-        <a href="#introduccion">Introducción</a>
-        <a href="#tarea">Tarea</a>
+        <a href="#introduccion">El Problema</a>
+        <a href="#tarea">Objetivo</a>
         <a href="#proceso">Proceso</a>
         <a href="#recursos">Recursos</a>
         <a href="#evaluacion">Evaluación</a>
@@ -35,11 +35,17 @@
         <article class="hero-card">
           <div>
             <div class="eyebrow">Proyecto de misión técnica</div>
-            <h1>¿Puedes diseñar un sistema seguro para una mina?</h1>
+            <h1>¿Puedes diseñar un sistema eléctrico seguro de "Aire Limpio" para una mina?</h1>
             <p class="lead">
               Diseña el sistema eléctrico de ventilación para un ventilador industrial de 15 kW en una mina subterránea. Tendrás que combinar arranque estrella-triángulo, inversión de giro, seguridad eléctrica y simulación técnica.
             </p>
             <div class="cta-row">
+             <p>
+            <span class="highlight">
+            Tu misión <span class="underline">si decides aceptarla</span>
+            </span>
+            comenzará al pulsar el botón amarillo
+            </p>
               <button class="btn btn-primary" id="startMission">Comenzar / Continuar la misión</button>
               <a class="btn btn-secondary" href="#evaluacion">Ver evaluación</a>
             </div>
@@ -69,20 +75,11 @@
               El sistema debe evitar caídas de tensión en el arranque y permitir el cambio de sentido de giro para extraer aire contaminado o inyectar aire limpio según el sensor.
             </p>
           </div>
-
           <div class="mine-scene">
-            <div class="tunnel"></div>
-            <div class="fan">
-              <div class="fan-blades">
-                <div class="blade"></div>
-                <div class="blade"></div>
-                <div class="blade"></div>
-                <div class="blade"></div>
-                <div class="blade"></div>
-              </div>
-            </div>
+          <div class="hero-image">
+            <img src="assets/mina.jpeg" alt="Minero con ventilador industrial">
           </div>
-
+          </div>
           <div class="mission-bar">
             <div class="mission-chip"><span>1</span>Analiza el problema</div>
             <div class="mission-chip"><span>2</span>Define la solución</div>
@@ -102,28 +99,16 @@
             Una empresa minera necesita un ventilador industrial de 15 kW para garantizar la ventilación de un túnel subterráneo. El arranque directo del motor puede provocar una caída de tensión en la instalación, con riesgos técnicos y de seguridad. Además, el ventilador debe cambiar el sentido de giro para extraer aire contaminado o inyectar aire limpio en función de la información recibida por un sensor.
           </p>
         </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Problema eléctrico</h3>
-            <p>El arranque directo de un motor trifásico de alta potencia produce picos de corriente elevados. Esto puede afectar a otros equipos y comprometer la estabilidad de la instalación.</p>
-          </article>
-          <article class="card">
-            <h3>Problema funcional</h3>
-            <p>El sistema debe invertir el sentido de giro del ventilador según la calidad del aire detectada, alternando entre extracción e inyección.</p>
-          </article>
-          <article class="card">
-            <h3>Problema de seguridad</h3>
-            <p>La solución debe integrar enclavamientos eléctricos y mecánicos, temporización y criterios de seguridad industrial para evitar maniobras incompatibles.</p>
-          </article>
-        </div>
+        <div class="intro-infografia">
+        <img src="assets/infografia-aire-mina.png" alt="Infografía sobre la necesidad de aire limpio y el ventilador reversible en la mina">
+      </div>
       </div>
     </section>
 
     <section id="tarea">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">Tarea</div>
+          <div class="section-kicker">Objetivo</div>
           <h2 class="section-title">Tu reto como técnico en automatismos</h2>
           <p class="section-text">
             Debes diseñar una solución completa, segura y técnicamente justificada para el control del motor del ventilador industrial. El proyecto combina diseño de potencia, mando, criterios de seguridad y validación por simulación.
@@ -519,54 +504,56 @@
           <p class="section-text">Aquí tienes una estructura de recursos alineada con el proyecto: fundamentos, automatismos, seguridad y simulación.</p>
         </div>
 
+        
         <div class="resource-grid">
           <div class="resource-category">
             <h3>1. Fundamentos de motores trifásicos</h3>
             <ul>
-              <li>Motores eléctricos trifásicos: arranque e inversión del giro.</li>
-              <li>Motor asincrónico trifásico.</li>
-              <li>Prácticas de electrotecnia con motores trifásicos.</li>
+              <li><a class="resource-link" href="https://www.editores.com.ar/sites/default/files/ie334_farina_motores.pdf" target="_blank" rel="noopener noreferrer">Motores eléctricos trifásicos: arranque e inversión del giro.</a></li>
+              <li><a class="resource-link" href="https://www.kimerius.com/app/download/5783169737/Motores+as%C3%ADncronos.pdf" target="_blank" rel="noopener noreferrer">Motor asincrónico trifásico.</a></li>
+              <li><a class="resource-link" href="https://www.youtube.com/watch?v=v6BwY1HwxOo" target="_blank" rel="noopener noreferrer">Prácticas de electrotecnia con motores trifásicos.</a></li>
             </ul>
           </div>
           <div class="resource-category">
             <h3>2. Arranque estrella-triángulo</h3>
             <ul>
-              <li>Conexión estrella-triángulo: explicación completa.</li>
-              <li>Laboratorio de arranque estrella-triángulo con inversión.</li>
-              <li>Proyectos de maniobra con inversión de giro.</li>
+              <li><a class="resource-link" href="https://automatismoindustrial.com/curso-instalador-electricista-de-baja-tension/arranque-estrella-triangulo/" target="_blank" rel="noopener noreferrer">Conexión estrella-triángulo: explicación completa.</a></li>
+              <li><a class="resource-link" href="https://unlp.edu.ar/wp-content/uploads/32/33732/cbe4aba99c3a4eccc904dd2c666d1f03.pdf" target="_blank" rel="noopener noreferrer">Laboratorio de arranque estrella-triángulo con inversión.</a></li>
+              <li><a class="resource-link" href="https://masam.cuautitlan.unam.mx/dycme/ce/practica-3/" target="_blank" rel="noopener noreferrer">Proyectos de maniobra con inversión de giro.</a></li>
             </ul>
           </div>
           <div class="resource-category">
             <h3>3. Inversión de giro</h3>
             <ul>
-              <li>Fundamentos de inversión de giro en motores trifásicos.</li>
-              <li>Maniobras con contactores para cambio de sentido.</li>
+              <li><a class="resource-link" href="https://mecatrans.es/seguridad-automatizacion-protocolos-y-normativas/" target="_blank" rel="noopener noreferrer">Fundamentos de inversión de giro en motores trifásicos.</a></li>
+              <li><a class="resource-link" href="https://motordirect.es/WIKI/instalacion_electrica_para_invertir_giro_en_motor_monofasico.html?srsltid=AfmBOorOzHBD-8KnBe3nAGD_L2CJGWyukBOT_qWhZ84uruoO44g7RaVB" target="_blank" rel="noopener noreferrer">Maniobras con contactores para cambio de sentido.</a></li>
             </ul>
           </div>
           <div class="resource-category">
             <h3>4. Automatismos y protecciones</h3>
             <ul>
-              <li>Contactores, relé térmico y protecciones.</li>
-              <li>Esquemas eléctricos de fuerza y mando.</li>
-              <li>Automatismo eléctrico y electrónica industrial.</li>
+              <li><a class="resource-link" href="https://blog.escuelacontrolmas.com/conexion-del-contactor-y-rele-termico-proteccion-para-tu-motor/" target="_blank" rel="noopener noreferrer">Contactores, relé térmico y protecciones.</a></li>
+              <li><a class="resource-link" href="https://cade-simu.com/" target="_blank" rel="noopener noreferrer">Esquemas eléctricos de fuerza y mando.</a></li>
+              <li><a class="resource-link" href="https://www.youtube.com/watch?v=tuDLXeNcHY4" target="_blank" rel="noopener noreferrer">Automatismo eléctrico y electrónica industrial.</a></li>
             </ul>
           </div>
           <div class="resource-category">
             <h3>5. Seguridad eléctrica</h3>
             <ul>
-              <li>Normativa básica de seguridad en automatismos industriales.</li>
-              <li>Criterios para enclavamientos y maniobras seguras.</li>
+              <li><a class="resource-link" href="https://mecatrans.es/seguridad-automatizacion-protocolos-y-normativas/" target="_blank" rel="noopener noreferrer">Normativa básica de seguridad en automatismos industriales.</a></li>
+              <li><a class="resource-link" href="https://www.digikey.es/es/articles/basics-of-safety-interlocks?srsltid=AfmBOoq9-N7CHBE1mAh5mpSXgm-ykJgX3JyYMO_bYf_S-TNEE_vRdsbB" target="_blank" rel="noopener noreferrer">Criterios para enclavamientos y maniobras seguras.</a></li>
             </ul>
           </div>
           <div class="resource-category">
             <h3>6. Simulación y audiovisuales</h3>
             <ul>
-              <li>CADeSIMU para validación de maniobras.</li>
-              <li>QElectroTech para diseño de esquemas.</li>
-              <li>Vídeos explicativos sobre estrella-triángulo, inversión de giro y esquemas de mando.</li>
+              <li><a class="resource-link" href="https://cade-simu.com/=" target="_blank" rel="noopener noreferrer">CADeSIMU para validación de maniobras.</a></li>
+              <li><a class="resource-link" href="https://qelectrotech.org/" target="_blank" rel="noopener noreferrer">QElectroTech para diseño de esquemas.</a></li>
+              <li><a class="resource-link" href="https://www.youtube.com/results?search_query=estrella+triángulo+inversión+de+giro+esquema+de+mando" target="_blank" rel="noopener noreferrer">Vídeos explicativos sobre estrella-triángulo, inversión de giro y esquemas de mando.</a></li>
             </ul>
           </div>
         </div>
+
       </div>
     </section>
 
