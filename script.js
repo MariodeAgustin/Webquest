@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(
 sections.forEach((section) => observer.observe(section));
 
 document.getElementById('startMission').addEventListener('click', () => {
-  document.getElementById('proceso').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('introduccion').scrollIntoView({ behavior: 'smooth' });
 });
 
 const phaseSteps = [...document.querySelectorAll('.phase-step')];
