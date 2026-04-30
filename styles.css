@@ -832,19 +832,48 @@ th {
   text-align: justify;
   text-justify: inter-word;
 }
-.problema-header {
+
+
+html {
+  scroll-behavior: smooth;
+}
+/* Layout general en 2 columnas */
+.intro-layout {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 2rem;
 }
 
-.btn-objetivo {
-  background-color: #FFD700;
-  color: black;
-  white-space: nowrap;
-  margin-top: 0.5rem; /* ajusta fino vertical */
+/* Columna izquierda */
+.intro-text {
+  flex: 1;
 }
-html {
-  scroll-behavior: smooth;
+
+/* Columna derecha (imagen) */
+.intro-image {
+  flex: 1;
+}
+
+.intro-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Header con botón arriba derecha */
+.intro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Botón */
+.btn-objetivo {
+  background: #FFD700;
+  color: black;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
 }
