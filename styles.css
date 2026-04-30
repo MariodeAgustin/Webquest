@@ -832,3 +832,19 @@ th {
   text-align: justify;
   text-justify: inter-word;
 }
+.problema-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.btn-objetivo {
+  background-color: #FFD700;
+  color: black;
+  white-space: nowrap;
+  margin-top: 0.5rem; /* ajusta fino vertical */
+}
+html {
+  scroll-behavior: smooth;
+}
