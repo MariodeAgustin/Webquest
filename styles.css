@@ -891,3 +891,17 @@ html {
 .btn-pdf:hover {
   background-color: #1E5AA8;
 }
+.btn-edpuzzle {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 18px;
+  background-color: #0B1F3A;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-edpuzzle:hover {
+  background-color: #1E5AA8;
+}
