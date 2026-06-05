@@ -877,3 +877,17 @@ html {
   text-decoration: none;
   white-space: nowrap;
 }
+.btn-pdf {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #0B1F3A;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn-pdf:hover {
+  background-color: #1E5AA8;
+}
