@@ -1,0 +1,720 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: var(--color-background-primary);
+  --bg2: var(--color-background-secondary);
+  --txt: var(--color-text-primary);
+  --txt2: var(--color-text-secondary);
+  --brd: var(--color-border-tertiary);
+  --blue: #185FA5;
+  --blue-l: #B5D4F4;
+  --amber: #BA7517;
+  --amber-l: #FAC775;
+  --teal: #0F6E56;
+  --teal-l: #9FE1CB;
+  --coral: #993C1D;
+  --coral-l: #F5C4B3;
+  --red: #A32D2D;
+  --green: #3B6D11;
+}
+
+body { background: transparent; }
+
+.container {
+  font-family: 'Space Grotesk', var(--font-sans), sans-serif;
+  max-width: 680px;
+  padding: 0;
+}
+
+/* Progress bar */
+.progress-wrap {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+.prog-dot {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--brd);
+  transition: background 0.4s;
+  cursor: pointer;
+}
+.prog-dot.active { background: var(--blue); }
+.prog-dot.done { background: var(--teal); }
+
+/* Slide */
+.slide {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+.slide.visible { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.slide-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.slide-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  background: var(--blue-l);
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.slide-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--txt);
+  line-height: 1.2;
+}
+.slide-sub {
+  font-size: 13px;
+  color: var(--txt2);
+  margin-top: 2px;
+}
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.info-card {
+  background: var(--bg2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 0.5px solid var(--brd);
+}
+.info-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--txt2);
+  margin-bottom: 6px;
+}
+.info-card .value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--txt);
+}
+.info-card .desc {
+  font-size: 12px;
+  color: var(--txt2);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Stat highlight */
+.stat-big {
+  text-align: center;
+  background: var(--bg2);
+  border-radius: 12px;
+  padding: 14px;
+  border: 0.5px solid var(--brd);
+  margin-bottom: 14px;
+}
+.stat-big .num { font-size: 36px; font-weight: 700; }
+.stat-big .unit { font-size: 14px; color: var(--txt2); }
+
+/* Explanation row */
+.explain-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--brd);
+}
+.explain-row:last-child { border-bottom: none; }
+.explain-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.explain-text { flex: 1; }
+.explain-text strong { font-size: 13px; font-weight: 700; display: block; color: var(--txt); }
+.explain-text span { font-size: 12px; color: var(--txt2); line-height: 1.4; }
+
+/* SVG diagrams */
+.diagram-wrap {
+  border-radius: 12px;
+  border: 0.5px solid var(--brd);
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: var(--bg2);
+  padding: 12px;
+}
+
+/* Comparison table */
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  font-size: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 0.5px solid var(--brd);
+}
+.compare-cell {
+  padding: 8px 10px;
+  border-right: 0.5px solid var(--brd);
+  border-bottom: 0.5px solid var(--brd);
+}
+.compare-cell:last-child { border-right: none; }
+.compare-cell.header { font-weight: 700; background: var(--bg2); color: var(--txt2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-cell.estrella { background: rgba(24, 95, 165, 0.08); color: var(--blue); }
+.compare-cell.triangulo { background: rgba(15, 110, 86, 0.08); color: var(--teal); }
+
+/* Nav buttons */
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+.nav-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--bg);
+  color: var(--txt);
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: var(--bg2); }
+.nav-btn.primary {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+.nav-btn.primary:hover { opacity: 0.9; }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+
+.slide-counter { font-size: 12px; color: var(--txt2); }
+
+/* Animation for current meter */
+@keyframes pulse-current { 0%,100%{opacity:1} 50%{opacity:0.5} }
+.current-bar { transition: width 0.8s cubic-bezier(.4,0,.2,1); }
+
+/* Phase color badges */
+.phase-r { color: #C03030; font-weight: 700; }
+.phase-s { color: #2255AA; font-weight: 700; }
+.phase-t { color: #228833; font-weight: 700; }
+
+/* Interlock visual */
+.interlock-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.contactor-box {
+  flex: 1;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+  user-select: none;
+}
+.contactor-box.on { border-color: var(--red); background: rgba(163,45,45,0.1); color: var(--red); }
+.contactor-box.off { border-color: var(--brd); background: var(--bg2); color: var(--txt2); }
+.contactor-box.blocked { background: rgba(163,45,45,0.04); border-color: var(--brd); color: var(--brd); }
+.interlock-status {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s;
+}
+.interlock-status.ok { background: rgba(59,109,17,0.1); color: var(--green); }
+.interlock-status.danger { background: rgba(163,45,45,0.12); color: var(--red); }
+.interlock-status.neutral { background: var(--bg2); color: var(--txt2); }
+
+/* Slider */
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 12px;
+  color: var(--txt2);
+}
+.slider-wrap input[type=range] { flex: 1; }
+.slider-val { min-width: 48px; font-weight: 700; color: var(--txt); font-size: 13px; }
+</style>
+
+<div class="container">
+  <div class="progress-wrap" id="progress">
+    <div class="prog-dot active" onclick="goTo(0)"></div>
+    <div class="prog-dot" onclick="goTo(1)"></div>
+    <div class="prog-dot" onclick="goTo(2)"></div>
+    <div class="prog-dot" onclick="goTo(3)"></div>
+  </div>
+
+  <!-- SLIDE 1: Qué es un motor trifásico -->
+  <div class="slide visible" id="slide-0">
+    <div class="slide-header">
+      <div class="slide-num">1</div>
+      <div>
+        <div class="slide-title">¿Qué es un motor trifásico?</div>
+        <div class="slide-sub">Principio de funcionamiento y corriente de arranque</div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg width="100%" viewBox="0 0 640 170" role="img">
+        <title>Motor trifásico y sus tres fases de corriente</title>
+        <desc>Diagrama de las tres fases desfasadas 120°, el campo giratorio y el rotor</desc>
+        <!-- Three phase curves -->
+        <defs>
+          <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Axes -->
+        <line x1="30" y1="85" x2="320" y2="85" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
+        <line x1="30" y1="20" x2="30" y2="155" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
+        <!-- Phase R -->
+        <path d="M30,85 C60,85 65,15 90,15 S120,155 150,155 S180,15 210,15 S240,155 270,155 S295,55 320,85"
+              fill="none" stroke="#C03030" stroke-width="2" opacity="0.9"/>
+        <!-- Phase S (120° offset) -->
+        <path d="M30,85 C50,130 70,155 90,155 S120,15 150,15 S180,155 210,155 S240,15 270,15 S300,75 320,85"
+              fill="none" stroke="#2255AA" stroke-width="2" opacity="0.9"/>
+        <!-- Phase T (240° offset) -->
+        <path d="M30,85 C45,45 65,15 90,85 C108,130 125,155 150,85 C170,35 190,15 210,85 C228,130 248,155 270,85 C290,40 310,20 320,85"
+              fill="none" stroke="#228833" stroke-width="2" opacity="0.9"/>
+        <!-- Labels -->
+        <text x="38" y="28" font-family="var(--font-sans)" font-size="11" font-weight="700" fill="#C03030">Fase R</text>
+        <text x="38" y="44" font-family="var(--font-sans)" font-size="11" font-weight="700" fill="#2255AA">Fase S</text>
+        <text x="38" y="60" font-family="var(--font-sans)" font-size="11" font-weight="700" fill="#228833">Fase T</text>
+        <text x="175" y="14" font-family="var(--font-sans)" font-size="10" fill="var(--color-text-secondary)" text-anchor="middle">desfase 120°</text>
+
+        <!-- Motor rotor diagram -->
+        <circle cx="490" cy="85" r="60" fill="none" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
+        <circle cx="490" cy="85" r="58" fill="rgba(24,95,165,0.06)"/>
+        <!-- Stator windings hints -->
+        <rect x="430" y="70" width="10" height="30" rx="3" fill="rgba(192,48,48,0.5)"/>
+        <rect x="540" y="70" width="10" height="30" rx="3" fill="rgba(192,48,48,0.5)"/>
+        <rect x="455" y="32" width="10" height="30" rx="3" fill="rgba(34,85,170,0.5)" transform="rotate(-60,460,47)"/>
+        <rect x="515" y="32" width="10" height="30" rx="3" fill="rgba(34,85,170,0.5)" transform="rotate(60,520,47)"/>
+        <rect x="455" y="108" width="10" height="30" rx="3" fill="rgba(34,136,51,0.5)" transform="rotate(60,460,123)"/>
+        <rect x="515" y="108" width="10" height="30" rx="3" fill="rgba(34,136,51,0.5)" transform="rotate(-60,520,123)"/>
+        <!-- Rotor -->
+        <circle cx="490" cy="85" r="28" fill="rgba(186,117,23,0.15)" stroke="#BA7517" stroke-width="1.5"/>
+        <circle cx="490" cy="85" r="5" fill="#BA7517"/>
+        <!-- Rotating field arrow -->
+        <line x1="490" y1="85" x2="490" y2="52" stroke="#BA7517" stroke-width="2.5" stroke-linecap="round" marker-end="url(#a1)"/>
+        <text x="490" y="155" font-family="var(--font-sans)" font-size="10" fill="var(--color-text-secondary)" text-anchor="middle">Campo giratorio → rotor sigue</text>
+        <!-- separator -->
+        <line x1="335" y1="20" x2="335" y2="155" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="4 3"/>
+      </svg>
+    </div>
+
+    <div class="two-col">
+      <div class="info-card">
+        <div class="label">Principio</div>
+        <div class="value" style="font-size:15px;line-height:1.2">Campo giratorio</div>
+        <div class="desc">Las 3 fases desfasadas 120° generan un campo magnético que rota, arrastrando el rotor.</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Corriente de arranque</div>
+        <div class="value" style="color:var(--red)">5–8× I<sub style="font-size:13px">n</sub></div>
+        <div class="desc">Al arrancar, el rotor está parado → la reactancia inductiva es mínima → pico de corriente.</div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap" style="padding-bottom: 16px;">
+      <div style="font-size:12px;font-weight:700;color:var(--txt2);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Simulación de corriente — mueve el deslizador</div>
+      <div class="slider-wrap">
+        <span>Tiempo arranque</span>
+        <input type="range" min="0" max="100" value="0" id="sl1" oninput="updateMotor(this.value)">
+        <span class="slider-val" id="sv1">0 s</span>
+      </div>
+      <div style="margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--txt2);margin-bottom:4px;">
+          <span>Corriente</span><span id="curr-val" style="font-weight:700;color:var(--red)">720 A (pico)</span>
+        </div>
+        <div style="background:var(--bg);border-radius:6px;height:14px;overflow:hidden;border:0.5px solid var(--brd);">
+          <div id="curr-bar" class="current-bar" style="height:100%;background:linear-gradient(90deg,#C03030,#E24B4A);width:100%;border-radius:6px;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--txt2);margin-top:3px;">
+          <span>0 A</span><span>I nominal = 90 A</span><span>720 A (8×)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Arranque estrella-triángulo -->
+  <div class="slide" id="slide-1">
+    <div class="slide-header">
+      <div class="slide-num" style="background:rgba(15,110,86,0.15);color:var(--teal)">2</div>
+      <div>
+        <div class="slide-title">Arranque estrella-triángulo</div>
+        <div class="slide-sub">Por qué reduce la corriente de arranque</div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg width="100%" viewBox="0 0 640 180" role="img">
+        <title>Comparación conexión estrella vs triángulo</title>
+        <desc>Diagrama vectorial de las tensiones en estrella y triángulo, y sus devanados</desc>
+        <!-- ESTRELLA -->
+        <text x="140" y="22" font-family="var(--font-sans)" font-size="12" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">Conexión Estrella (Y)</text>
+        <!-- Center point -->
+        <circle cx="140" cy="100" r="4" fill="#185FA5"/>
+        <!-- Phase lines -->
+        <line x1="140" y1="100" x2="140" y2="30" stroke="#C03030" stroke-width="2" stroke-linecap="round"/>
+        <line x1="140" y1="100" x2="72" y2="147" stroke="#2255AA" stroke-width="2" stroke-linecap="round"/>
+        <line x1="140" y1="100" x2="208" y2="147" stroke="#228833" stroke-width="2" stroke-linecap="round"/>
+        <!-- Dots -->
+        <circle cx="140" cy="30" r="5" fill="#C03030"/>
+        <circle cx="72" cy="147" r="5" fill="#2255AA"/>
+        <circle cx="208" cy="147" r="5" fill="#228833"/>
+        <!-- Labels -->
+        <text x="140" y="18" font-family="var(--font-sans)" font-size="10" fill="#C03030" text-anchor="middle">R</text>
+        <text x="56" y="155" font-family="var(--font-sans)" font-size="10" fill="#2255AA">S</text>
+        <text x="214" y="155" font-family="var(--font-sans)" font-size="10" fill="#228833">T</text>
+        <!-- Neutral -->
+        <text x="148" y="103" font-family="var(--font-sans)" font-size="9" fill="#185FA5">N</text>
+        <!-- Voltage label -->
+        <rect x="50" y="158" width="180" height="18" rx="4" fill="rgba(24,95,165,0.08)"/>
+        <text x="140" y="171" font-family="var(--font-sans)" font-size="10" fill="#185FA5" text-anchor="middle">V_devanado = V_línea / √3 ≈ 231 V</text>
+
+        <!-- Separator -->
+        <line x1="310" y1="15" x2="310" y2="175" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+        <!-- TRIÁNGULO -->
+        <text x="480" y="22" font-family="var(--font-sans)" font-size="12" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">Conexión Triángulo (Δ)</text>
+        <!-- Triangle -->
+        <polygon points="480,35 392,172 568,172" fill="none" stroke="var(--color-border-secondary)" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <line x1="480" y1="35" x2="392" y2="172" stroke="#C03030" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="392" y1="172" x2="568" y2="172" stroke="#2255AA" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="568" y1="172" x2="480" y2="35" stroke="#228833" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Vertex dots -->
+        <circle cx="480" cy="35" r="5" fill="#C03030"/>
+        <circle cx="392" cy="172" r="5" fill="#2255AA"/>
+        <circle cx="568" cy="172" r="5" fill="#228833"/>
+        <text x="480" y="28" font-family="var(--font-sans)" font-size="10" fill="#C03030" text-anchor="middle">R</text>
+        <text x="378" y="175" font-family="var(--font-sans)" font-size="10" fill="#2255AA">S</text>
+        <text x="572" y="175" font-family="var(--font-sans)" font-size="10" fill="#228833">T</text>
+        <rect x="390" y="14" width="180" height="18" rx="4" fill="rgba(15,110,86,0.08)"/>
+        <text x="480" y="27" font-family="var(--font-sans)" font-size="10" fill="var(--teal)" text-anchor="middle">V_devanado = V_línea = 400 V</text>
+      </svg>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-cell header">Parámetro</div>
+      <div class="compare-cell header" style="color:var(--blue)">⋆ Estrella (arranque)</div>
+      <div class="compare-cell header" style="color:var(--teal)">△ Triángulo (marcha)</div>
+      <div class="compare-cell">Tensión en devanado</div>
+      <div class="compare-cell estrella">V / √3 ≈ 231 V</div>
+      <div class="compare-cell triangulo">V = 400 V</div>
+      <div class="compare-cell">Corriente de línea</div>
+      <div class="compare-cell estrella">1/3 de la nominal</div>
+      <div class="compare-cell triangulo">Corriente plena</div>
+      <div class="compare-cell">Par motor</div>
+      <div class="compare-cell estrella">1/3 del nominal</div>
+      <div class="compare-cell triangulo">Par pleno</div>
+      <div class="compare-cell">Cuándo se usa</div>
+      <div class="compare-cell estrella">0–2 s arranque</div>
+      <div class="compare-cell triangulo">Velocidad normal</div>
+    </div>
+
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(24,95,165,0.1);">⚡</div>
+      <div class="explain-text">
+        <strong>¿Por qué baja la corriente?</strong>
+        <span>En estrella, cada devanado recibe √3 veces menos tensión. Como I ∝ V², la corriente cae a 1/3. Esto protege la red y los contactores durante el transitorio de arranque.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(15,110,86,0.1);">⏱</div>
+      <div class="explain-text">
+        <strong>Secuencia de conmutación</strong>
+        <span>Contactor principal KM1 cierra → KM-Y cierra (estrella) → tras 2-5 s temporizador → KM-Y abre → KM-Δ cierra (triángulo). ¡Nunca simultáneamente!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Inversión de giro -->
+  <div class="slide" id="slide-2">
+    <div class="slide-header">
+      <div class="slide-num" style="background:rgba(186,117,23,0.15);color:var(--amber)">3</div>
+      <div>
+        <div class="slide-title">Inversión del sentido de giro</div>
+        <div class="slide-sub">Intercambiando dos fases en el motor trifásico</div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg width="100%" viewBox="0 0 640 200" role="img">
+        <title>Inversión de giro intercambiando dos fases</title>
+        <desc>Conexión directa vs conexión con fases R y T intercambiadas</desc>
+        <!-- LEFT: Giro normal -->
+        <text x="148" y="22" font-family="var(--font-sans)" font-size="12" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">Giro directo</text>
+
+        <!-- Busbars top -->
+        <rect x="40" y="35" width="216" height="6" rx="2" fill="var(--color-border-secondary)" opacity=".5"/>
+        <circle cx="80" cy="38" r="5" fill="#C03030"/><text x="80" y="28" font-family="var(--font-sans)" font-size="10" fill="#C03030" text-anchor="middle">R</text>
+        <circle cx="148" cy="38" r="5" fill="#2255AA"/><text x="148" y="28" font-family="var(--font-sans)" font-size="10" fill="#2255AA" text-anchor="middle">S</text>
+        <circle cx="216" cy="38" r="5" fill="#228833"/><text x="216" y="28" font-family="var(--font-sans)" font-size="10" fill="#228833" text-anchor="middle">T</text>
+
+        <!-- Straight lines -->
+        <line x1="80" y1="43" x2="80" y2="120" stroke="#C03030" stroke-width="2" stroke-linecap="round"/>
+        <line x1="148" y1="43" x2="148" y2="120" stroke="#2255AA" stroke-width="2" stroke-linecap="round"/>
+        <line x1="216" y1="43" x2="216" y2="120" stroke="#228833" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Motor box -->
+        <rect x="50" y="120" width="196" height="50" rx="10" fill="rgba(24,95,165,0.07)" stroke="#185FA5" stroke-width="1.5"/>
+        <text x="148" y="151" font-family="var(--font-sans)" font-size="13" font-weight="700" fill="#185FA5" text-anchor="middle">MOTOR</text>
+        <!-- Rotation arrow -->
+        <path d="M148 182 Q185 195 190 175" fill="none" stroke="#185FA5" stroke-width="2" stroke-linecap="round" marker-end="url(#a1)"/>
+        <text x="148" y="197" font-family="var(--font-sans)" font-size="10" fill="#185FA5" text-anchor="middle">↺ antihorario</text>
+
+        <!-- Separator -->
+        <line x1="310" y1="15" x2="310" y2="200" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+        <!-- RIGHT: Giro inverso -->
+        <text x="484" y="22" font-family="var(--font-sans)" font-size="12" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">Giro inverso</text>
+
+        <!-- Busbars top -->
+        <rect x="376" y="35" width="216" height="6" rx="2" fill="var(--color-border-secondary)" opacity=".5"/>
+        <circle cx="416" cy="38" r="5" fill="#C03030"/><text x="416" y="28" font-family="var(--font-sans)" font-size="10" fill="#C03030" text-anchor="middle">R</text>
+        <circle cx="484" cy="38" r="5" fill="#2255AA"/><text x="484" y="28" font-family="var(--font-sans)" font-size="10" fill="#2255AA" text-anchor="middle">S</text>
+        <circle cx="552" cy="38" r="5" fill="#228833"/><text x="552" y="28" font-family="var(--font-sans)" font-size="10" fill="#228833" text-anchor="middle">T</text>
+
+        <!-- Crossed lines R-T: R goes to T terminal, T goes to R terminal -->
+        <!-- R (416) → crosses to right motor terminal (552) -->
+        <path d="M416,43 L416,70 Q416,90 452,90 L516,90 Q552,90 552,120" fill="none" stroke="#C03030" stroke-width="2" stroke-linecap="round"/>
+        <!-- S straight -->
+        <line x1="484" y1="43" x2="484" y2="120" stroke="#2255AA" stroke-width="2" stroke-linecap="round"/>
+        <!-- T (552) → crosses to left motor terminal (416) -->
+        <path d="M552,43 L552,60 Q552,80 516,80 L452,80 Q416,80 416,120" fill="none" stroke="#228833" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Swap indicator -->
+        <rect x="445" y="60" width="94" height="20" rx="6" fill="rgba(186,117,23,0.15)" stroke="#BA7517" stroke-width="0.5"/>
+        <text x="492" y="73" font-family="var(--font-sans)" font-size="10" font-weight="700" fill="#BA7517" text-anchor="middle">R ↔ T intercambiadas</text>
+
+        <!-- Motor box -->
+        <rect x="386" y="120" width="196" height="50" rx="10" fill="rgba(163,45,45,0.07)" stroke="#A32D2D" stroke-width="1.5"/>
+        <text x="484" y="151" font-family="var(--font-sans)" font-size="13" font-weight="700" fill="#A32D2D" text-anchor="middle">MOTOR</text>
+        <!-- Rotation arrow reversed -->
+        <path d="M484 182 Q448 195 442 175" fill="none" stroke="#A32D2D" stroke-width="2" stroke-linecap="round" marker-end="url(#a1)"/>
+        <text x="484" y="197" font-family="var(--font-sans)" font-size="10" fill="#A32D2D" text-anchor="middle">↻ horario</text>
+      </svg>
+    </div>
+
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(186,117,23,0.1)">🔄</div>
+      <div class="explain-text">
+        <strong>¿Por qué funciona esto?</strong>
+        <span>El campo giratorio depende del orden de secuencia de fases (R-S-T). Al intercambiar dos fases (p.ej. R y T), la secuencia pasa a R-T-S, invirtiendo el sentido del campo magnético → el rotor gira al revés.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(163,45,45,0.08)">⚠</div>
+      <div class="explain-text">
+        <strong>Precaución importante</strong>
+        <span>Nunca invertir el giro con el motor en marcha sin freno previo. El choque mecánico puede dañar el eje, los rodamientos y la carga. Siempre se para primero o se usa frenado dinámico.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(59,109,17,0.08)">✓</div>
+      <div class="explain-text">
+        <strong>Regla práctica</strong>
+        <span>Solo se necesita intercambiar dos fases cualquiera (R-S, R-T o S-T). El efecto es idéntico: la secuencia de fase se invierte y con ella, el giro.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Enclavamientos -->
+  <div class="slide" id="slide-3">
+    <div class="slide-header">
+      <div class="slide-num" style="background:rgba(163,45,45,0.12);color:var(--red)">4</div>
+      <div>
+        <div class="slide-title">Enclavamientos eléctricos y mecánicos</div>
+        <div class="slide-sub">Por qué son imprescindibles y cómo funcionan</div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <div style="font-size:11px;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Simulador interactivo — pulsa los contactores</div>
+      <div class="interlock-row">
+        <div class="contactor-box off" id="cb-km1" onclick="toggleContactor('km1')">
+          <div style="font-size:18px;margin-bottom:4px">⊙</div>
+          <div>KM-Y</div>
+          <div style="font-size:10px;font-weight:400;margin-top:2px">Estrella</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+          <div style="font-size:10px;color:var(--txt2);font-weight:500">Estado del sistema</div>
+          <div class="interlock-status neutral" id="sys-status" style="width:100%">Motor detenido</div>
+        </div>
+        <div class="contactor-box off" id="cb-km2" onclick="toggleContactor('km2')">
+          <div style="font-size:18px;margin-bottom:4px">⊙</div>
+          <div>KM-Δ</div>
+          <div style="font-size:10px;font-weight:400;margin-top:2px">Triángulo</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--txt2);text-align:center;margin-top:4px">
+        💡 Si ambos contactores cierran a la vez → <strong style="color:var(--red)">CORTOCIRCUITO</strong>
+      </div>
+    </div>
+
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(163,45,45,0.08)">⚡</div>
+      <div class="explain-text">
+        <strong>¿Qué pasaría sin enclavamiento?</strong>
+        <span>KM-Y y KM-Δ en el arranque Y-Δ conectan los devanados en configuraciones opuestas. Si ambos cierran simultáneamente → cortocircuito de fase → fusibles, cable quemado, posible explosión del armario.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(24,95,165,0.1)">🔌</div>
+      <div class="explain-text">
+        <strong>Enclavamiento eléctrico</strong>
+        <span>Un contacto NC (normalmente cerrado) de KM-Y se pone en serie con la bobina de KM-Δ, y viceversa. Si uno está activo, corta físicamente la corriente de mando del otro. Es rápido pero puede fallar si el contacto se suelda.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(15,110,86,0.08)">🔒</div>
+      <div class="explain-text">
+        <strong>Enclavamiento mecánico</strong>
+        <span>Una palanca física une los dos contactores: cuando uno cierra, bloquea físicamente el núcleo del otro. Funciona aunque la parte eléctrica falle. En aplicaciones críticas (inversores de giro, Y-Δ) siempre se usan ambos tipos juntos.</span>
+      </div>
+    </div>
+    <div class="explain-row">
+      <div class="explain-icon" style="background:rgba(186,117,23,0.1)">⏱</div>
+      <div class="explain-text">
+        <strong>Tiempo muerto entre conmutaciones</strong>
+        <span>Además del enclavamiento, se añade un temporizador de 50-100 ms entre la apertura de un contactor y el cierre del siguiente. Esto garantiza que el arco eléctrico se extinga antes de la nueva conexión.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-row">
+    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>← Anterior</button>
+    <span class="slide-counter" id="slide-counter">1 / 4</span>
+    <button class="nav-btn primary" id="btn-next" onclick="navigate(1)">Siguiente →</button>
+  </div>
+</div>
+
+<script>
+let current = 0;
+const total = 4;
+const km = { km1: false, km2: false };
+
+function goTo(n) {
+  document.getElementById('slide-'+current).classList.remove('visible');
+  current = n;
+  document.getElementById('slide-'+current).classList.add('visible');
+  updateProgress();
+  updateNav();
+}
+
+function navigate(dir) {
+  const next = current + dir;
+  if (next < 0 || next >= total) return;
+  goTo(next);
+}
+
+function updateProgress() {
+  const dots = document.querySelectorAll('.prog-dot');
+  dots.forEach((d, i) => {
+    d.classList.remove('active','done');
+    if (i === current) d.classList.add('active');
+    else if (i < current) d.classList.add('done');
+  });
+  document.getElementById('slide-counter').textContent = (current+1)+' / '+total;
+}
+
+function updateNav() {
+  document.getElementById('btn-prev').disabled = current === 0;
+  const nb = document.getElementById('btn-next');
+  if (current === total - 1) {
+    nb.textContent = '¡Completado! ↗';
+    nb.onclick = () => sendPrompt('Tengo preguntas sobre los motores trifásicos');
+  } else {
+    nb.textContent = 'Siguiente →';
+    nb.onclick = () => navigate(1);
+    nb.disabled = false;
+  }
+}
+
+// Slide 1: current bar simulation
+function updateMotor(v) {
+  const t = parseInt(v);
+  document.getElementById('sv1').textContent = (t/20).toFixed(1)+' s';
+  // Exponential decay of current
+  const factor = Math.exp(-t/25);
+  const nominal = 90;
+  const peak = 720;
+  const curr = Math.round(nominal + (peak - nominal) * factor);
+  const pct = ((curr - nominal) / (peak - nominal)) * 100;
+  const barW = 12 + pct * 0.88;
+  document.getElementById('curr-bar').style.width = barW + '%';
+  document.getElementById('curr-val').textContent = curr + ' A' + (t < 10 ? ' (pico)' : t > 70 ? ' (estable)' : '');
+  const r = Math.round(192 + (48-192)*((100-barW)/88));
+  document.getElementById('curr-val').style.color = `rgb(${Math.min(192,r+50)},${Math.max(0,80-pct)},${Math.max(0,40-pct)})`;
+}
+
+// Slide 4: interlock simulation
+function toggleContactor(id) {
+  const other = id === 'km1' ? 'km2' : 'km1';
+  km[id] = !km[id];
+  const cb = document.getElementById('cb-'+id);
+  const cbO = document.getElementById('cb-'+other);
+  const status = document.getElementById('sys-status');
+
+  // If trying to close while other is closed → BLOCKED (with soft warning)
+  if (km[id] && km[other]) {
+    // Danger: both closed
+    cb.classList.add('on');
+    status.className = 'interlock-status danger';
+    status.textContent = '⛔ ¡CORTOCIRCUITO! Enclavamiento habría evitado esto';
+    setTimeout(() => {
+      km[id] = false; km[other] = false;
+      cb.classList.remove('on'); cbO.classList.remove('on');
+      status.className = 'interlock-status neutral';
+      status.textContent = 'Enclavamiento actuó — sistema seguro';
+      setTimeout(() => { status.textContent = 'Motor detenido'; }, 2000);
+    }, 1200);
+    return;
+  }
+
+  if (km[id]) {
+    cb.classList.add('on'); cb.classList.remove('off');
+    cbO.classList.add('blocked'); cbO.classList.remove('off');
+    status.className = 'interlock-status ok';
+    status.textContent = id === 'km1'
+      ? '✓ Arrancando en estrella (Y) — KM-Δ bloqueado'
+      : '✓ Marcha en triángulo (Δ) — KM-Y bloqueado';
+  } else {
+    cb.classList.remove('on'); cb.classList.add('off');
+    cbO.classList.remove('blocked'); cbO.classList.add('off');
+    status.className = 'interlock-status neutral';
+    status.textContent = 'Motor detenido';
+  }
+}
+</script>
