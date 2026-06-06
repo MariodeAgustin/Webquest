@@ -905,3 +905,20 @@ html {
   background-color: #1E5AA8;
   color: #FFD700;
 }
+Y en tu CSS:
+
+.btn-genially {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 18px;
+  background-color: #0B1F3A;
+  color: #FFD700;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-genially:hover {
+  background-color: #1E5AA8;
+  color: #FFD700;
+}
